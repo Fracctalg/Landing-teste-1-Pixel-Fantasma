@@ -3,158 +3,185 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pixel Fantasma</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <title>Pixel Fantasma - Estratégia Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #111827;
-      color: white;
+      padding: 0;
+      font-family: 'Outfit', sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(to right, #0f0f0f, #1f1f1f);
+      color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
+      padding: 40px 20px;
     }
 
     .container {
       max-width: 600px;
       text-align: center;
-      padding: 20px;
-      border-radius: 20px;
-      background: #1f2937;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #00ffd5;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #ccc;
     }
 
     img {
       width: 100%;
-      max-width: 450px;
-      border-radius: 15px;
-      margin-bottom: 20px;
+      max-width: 400px;
+      margin: 20px auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 0 30px #00ffd59e;
     }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: #facc15;
-    }
-
-    h2 {
-      color: #10b981;
-      font-size: 1.4rem;
-      margin-top: 30px;
-    }
-
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      color: #d1d5db;
-    }
-
-    ul {
-      text-align: left;
-      margin-bottom: 30px;
-      padding-left: 20px;
-      color: #d1d5db;
-    }
-
-    ul li::before {
-      content: "✓ ";
-      color: #10b981;
-      font-weight: bold;
-    }
-
-    .btn-container {
+    .buttons {
       display: flex;
-      flex-direction: column;
       gap: 15px;
-      align-items: center;
+      justify-content: center;
+      margin-top: 25px;
     }
 
     .btn {
       display: flex;
       align-items: center;
       gap: 10px;
-      justify-content: center;
-      padding: 12px 20px;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 10px;
-      text-decoration: none;
+      background-color: #25D366;
       color: white;
-      width: 100%;
-      max-width: 300px;
-      transition: all 0.3s ease;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
     }
 
     .btn i {
       font-size: 1.2rem;
     }
 
-    .btn-whats {
-      background-color: #25D366;
-      border: 2px solid #128C7E;
+    .btn:hover {
+      opacity: 0.9;
     }
 
-    .btn-whats:hover {
-      background-color: #128C7E;
+    .linktree {
+      background-color: #6f42c1;
     }
 
-    .btn-linktree {
-      background-color: #6C5CE7;
-      border: 2px solid #5A4FCF;
+    .section {
+      margin-top: 40px;
+      text-align: left;
     }
 
-    .btn-linktree:hover {
-      background-color: #5A4FCF;
+    .section h2 {
+      color: #00ffd5;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
     }
 
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.5rem;
+    .section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .section ul li {
+      margin-bottom: 10px;
+      color: #bbb;
+    }
+
+    .neon-deco {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      background: radial-gradient(#00ffd5aa, transparent 70%);
+      z-index: 0;
+    }
+
+    .neon-left {
+      left: 0;
+    }
+
+    .neon-right {
+      right: 0;
+    }
+
+    @media (max-width: 768px) {
+      .buttons {
+        flex-direction: column;
       }
 
-      p {
-        font-size: 1rem;
+      .btn {
+        width: 100%;
+        justify-content: center;
       }
     }
   </style>
 </head>
 <body>
+
+  <div class="neon-deco neon-left"></div>
+  <div class="neon-deco neon-right"></div>
+
   <div class="container">
-    <img src="empreendedor.png" alt="Empreendedor Digital" />
-    <h1>Construa sua presença digital com estratégia</h1>
-    <p>Transformamos negócios com soluções de marketing e automação sob medida para afiliados e empresas digitais.</p>
+    <h1>Pixel Fantasma</h1>
+    <p>Transformando negócios com estratégia, automação e criatividade.</p>
 
-    <h2>🚀 Serviços Oferecidos</h2>
-    <ul>
-      <li>Gestão de Mídias Sociais</li>
-      <li>Criação de Copy e Funis de Vendas</li>
-      <li>Gestão de Tráfego Pago (Facebook, Instagram, Google)</li>
-      <li>Desenvolvimento de Persona e Jornada do Cliente</li>
-      <li>Automação via WhatsApp e E-mail Marketing</li>
-    </ul>
+    <img src="empreendedor.png" alt="Empreendedor moderno" />
 
-    <h2>🎯 Benefícios e Diferenciais</h2>
-    <ul>
-      <li>Atendimento ágil e personalizado</li>
-      <li>Entrega estratégica com foco em conversão</li>
-      <li>Equipe especializada com apoio de inteligência artificial</li>
-      <li>Planos sob medida para o seu momento</li>
-    </ul>
-
-    <h2>💬 O que dizem sobre nós</h2>
-    <p><em>"A Pixel Fantasma elevou o nível do meu negócio. Em poucos dias, meus anúncios já estavam convertendo muito mais!"</em><br>– Cliente Satisfeito</p>
-    <p><strong>Entre em contato e faça parte dos negócios que mais crescem com estratégia!</strong></p>
-
-    <div class="btn-container">
-      <a href="https://wa.me/5547991179867" target="_blank" class="btn btn-whats">
-        <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+    <div class="buttons">
+      <a href="https://wa.me/5547991179867" class="btn">
+        <i class="bi bi-whatsapp"></i> WhatsApp
       </a>
-      <a href="https://linktr.ee/SEULINK" target="_blank" class="btn btn-linktree">
-        <i class="fas fa-link"></i> Acessar Linktree
+      <a href="https://linktr.ee/seulinktree" class="btn linktree">
+        <i class="bi bi-link-45deg"></i> Linktree
       </a>
     </div>
+
+    <div class="section">
+      <h2>🚀 Serviços oferecidos</h2>
+      <ul>
+        <li>📱 Gerenciamento de mídias sociais</li>
+        <li>🎯 Criação e gestão de anúncios pagos</li>
+        <li>🧠 Copywriting estratégico</li>
+        <li>👤 Desenvolvimento de persona</li>
+        <li>🤖 Funil de automação via WhatsApp e e-mail marketing</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>✨ Benefícios e diferenciais</h2>
+      <ul>
+        <li>⚡ Entregas rápidas com apoio de IA</li>
+        <li>💡 Estratégia personalizada para cada cliente</li>
+        <li>📊 Foco em resultado e conversão</li>
+        <li>🎨 Comunicação elegante e profissional</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>📢 Prova social</h2>
+      <p>+ de 120 clientes atendidos com estratégias que geram resultados reais.</p>
+      <p><strong>Entre em contato e descubra o que a Pixel Fantasma pode fazer pelo seu negócio.</strong></p>
+    </div>
   </div>
+
 </body>
 </html>
