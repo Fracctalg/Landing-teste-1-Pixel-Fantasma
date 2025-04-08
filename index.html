@@ -1,49 +1,120 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pixel Fantasma - Landing Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  </head>
-  <body class="bg-gray-900 text-white font-sans">
-    <div class="flex flex-col items-center justify-center min-h-screen p-6">
-      <!-- Cabeçalho -->
-      <h1 class="text-4xl font-bold text-center text-white mb-4">Impulsione seu negócio digital com o Pixel Fantasma</h1>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pixel Fantasma</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #111827;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
 
-      <!-- Subtítulo -->
-      <p class="text-lg text-center text-gray-300 mb-6 max-w-xl">
-        Estratégias inteligentes em tráfego pago, automação e copywriting para transformar cliques em conversões.
-      </p>
+    .container {
+      max-width: 600px;
+      text-align: center;
+      padding: 20px;
+      border-radius: 20px;
+      background: #1f2937;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
 
-      <!-- Imagem principal -->
-      <img
-        src="empreendedor.png"
-        alt="Jovem empreendedor com celular"
-        class="w-full max-w-md rounded-lg shadow-lg mb-8"
-      />
+    img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
 
-      <!-- Botões -->
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a
-          href="https://wa.me/5547991179867"
-          target="_blank"
-          class="bg-[#25D366] text-white py-3 px-6 rounded-full flex items-center gap-2 shadow-md hover:bg-[#1ebe5d] transition duration-300"
-        >
-          <i class="fab fa-whatsapp text-xl"></i>
-          Fale conosco no WhatsApp
-        </a>
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #facc15;
+    }
 
-        <a
-          href="https://linktr.ee/seu_usuario"
-          target="_blank"
-          class="bg-[#6e57e0] text-white py-3 px-6 rounded-full flex items-center gap-2 shadow-md hover:bg-[#5947c5] transition duration-300"
-        >
-          <i class="fas fa-link text-xl"></i>
-          Conheça nossos serviços
-        </a>
-      </div>
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      color: #d1d5db;
+    }
+
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+      padding: 12px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      width: 100%;
+      max-width: 300px;
+      transition: all 0.3s ease;
+    }
+
+    .btn i {
+      font-size: 1.2rem;
+    }
+
+    .btn-whats {
+      background-color: #25D366;
+      border: 2px solid #128C7E;
+    }
+
+    .btn-whats:hover {
+      background-color: #128C7E;
+    }
+
+    .btn-linktree {
+      background-color: #6C5CE7;
+      border: 2px solid #5A4FCF;
+    }
+
+    .btn-linktree:hover {
+      background-color: #5A4FCF;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="empreendedor.png" alt="Empreendedor Digital" />
+    <h1>Construa sua presença digital com estratégia</h1>
+    <p>Landing Pages personalizadas, anúncios otimizados e automações inteligentes para afiliados e negócios digitais.</p>
+
+    <div class="btn-container">
+      <a href="https://wa.me/SEUNUMERO" target="_blank" class="btn btn-whats">
+        <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+      </a>
+      <a href="https://linktr.ee/SEULINK" target="_blank" class="btn btn-linktree">
+        <i class="fas fa-link"></i> Acessar Linktree
+      </a>
     </div>
-  </body>
+  </div>
+</body>
 </html>
