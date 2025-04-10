@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pixel Fantasma - Estratégia Digital</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
@@ -11,62 +11,57 @@
     * {
       margin: 0;
       padding: 0;
-      font-family: 'Outfit', sans-serif;
       box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
     }
 
     body {
-      background: radial-gradient(ellipse at bottom, #190a2a 0%, #0a0215 100%);
+      background: #0f0f0f;
       color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-      position: relative;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
-    body::before {
-      content: "";
-      position: absolute;
-      top: -100px;
+    .background-effects {
+      position: fixed;
+      top: 0;
       left: 0;
-      width: 200%;
-      height: 200%;
-      background-image: 
-        url('fantasma-logo-opacity.png'), /* imagem do fantasma suave */
-        repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(136, 76, 255, 0.08) 42px),
-        radial-gradient(circle, rgba(255, 0, 255, 0.08) 1px, transparent 1px);
-      background-size: 300px, 100% 50px, 20px 20px;
-      background-position: center;
-      background-repeat: no-repeat, repeat, repeat;
-      opacity: 0.15;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
       z-index: 0;
-      animation: floatBackground 20s infinite linear;
+      background: url('https://your-image-url.com/background-effect.png') repeat;
+      opacity: 0.08;
     }
 
-    @keyframes floatBackground {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-100px); }
+    .ghost-logo {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 200px;
+      opacity: 0.03;
+      z-index: 0;
     }
 
     .container {
       max-width: 600px;
-      text-align: center;
+      margin: 0 auto;
+      padding: 40px 20px;
       position: relative;
       z-index: 1;
     }
 
     h1 {
       font-size: 2.2rem;
-      color: #b677ff;
+      color: #00ffd5;
       margin-bottom: 10px;
+      text-align: center;
     }
 
     p {
       font-size: 1rem;
       margin-bottom: 20px;
       color: #ccc;
+      text-align: center;
     }
 
     img {
@@ -75,7 +70,7 @@
       margin: 20px auto;
       display: block;
       border-radius: 12px;
-      box-shadow: 0 0 30px #b677ff9e;
+      box-shadow: 0 0 30px #00ffd59e;
     }
 
     .buttons {
@@ -113,11 +108,10 @@
 
     .section {
       margin-top: 40px;
-      text-align: left;
     }
 
     .section h2 {
-      color: #b677ff;
+      color: #00ffd5;
       font-size: 1.5rem;
       margin-bottom: 10px;
     }
@@ -145,6 +139,9 @@
   </style>
 </head>
 <body>
+
+  <div class="background-effects"></div>
+  <img class="ghost-logo" src="https://your-image-url.com/fantasma-logo-opacity.png" alt="Fantasma" />
 
   <div class="container">
     <h1>Pixel Fantasma</h1>
