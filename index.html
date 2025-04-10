@@ -16,12 +16,38 @@
     }
 
     body {
-      background: linear-gradient(to right, #0f0f0f, #1f1f1f);
+      background: radial-gradient(ellipse at bottom, #190a2a 0%, #0a0215 100%);
       color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background-image: 
+        url('fantasma-logo-opacity.png'), /* imagem do fantasma suave */
+        repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(136, 76, 255, 0.08) 42px),
+        radial-gradient(circle, rgba(255, 0, 255, 0.08) 1px, transparent 1px);
+      background-size: 300px, 100% 50px, 20px 20px;
+      background-position: center;
+      background-repeat: no-repeat, repeat, repeat;
+      opacity: 0.15;
+      z-index: 0;
+      animation: floatBackground 20s infinite linear;
+    }
+
+    @keyframes floatBackground {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100px); }
     }
 
     .container {
@@ -33,7 +59,7 @@
 
     h1 {
       font-size: 2.2rem;
-      color: #00ffd5;
+      color: #b677ff;
       margin-bottom: 10px;
     }
 
@@ -49,7 +75,7 @@
       margin: 20px auto;
       display: block;
       border-radius: 12px;
-      box-shadow: 0 0 30px #00ffd59e;
+      box-shadow: 0 0 30px #b677ff9e;
     }
 
     .buttons {
@@ -91,7 +117,7 @@
     }
 
     .section h2 {
-      color: #00ffd5;
+      color: #b677ff;
       font-size: 1.5rem;
       margin-bottom: 10px;
     }
@@ -104,23 +130,6 @@
     .section ul li {
       margin-bottom: 10px;
       color: #bbb;
-    }
-
-    .neon-deco {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      width: 80px;
-      background: radial-gradient(#00ffd5aa, transparent 70%);
-      z-index: 0;
-    }
-
-    .neon-left {
-      left: 0;
-    }
-
-    .neon-right {
-      right: 0;
     }
 
     @media (max-width: 768px) {
@@ -136,9 +145,6 @@
   </style>
 </head>
 <body>
-
-  <div class="neon-deco neon-left"></div>
-  <div class="neon-deco neon-right"></div>
 
   <div class="container">
     <h1>Pixel Fantasma</h1>
