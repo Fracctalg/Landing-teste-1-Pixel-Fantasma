@@ -1,179 +1,180 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pixel Fantasma - Estratégias que Convertem</title>
+  <title>Pixel Fantasma - Agência Digital Estratégica</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0e001a;
-      color: white;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #0d011a;
+      color: #fff;
       overflow-x: hidden;
       position: relative;
     }
 
-    header {
-      text-align: center;
-      padding: 3rem 1rem;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      color: #ffffff;
-    }
-
-    p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 1rem auto;
-    }
-
-    .section {
-      padding: 4rem 1rem;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-
-    .btn {
-      padding: 1rem 2rem;
-      background: #9e00ff;
-      border: none;
-      border-radius: 30px;
-      color: white;
-      font-size: 1.1rem;
-      cursor: pointer;
-      margin-top: 2rem;
-    }
-
-    /* Mini Funil */
-    .funnel-section {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      margin: 2rem auto;
-      max-width: 900px;
-      padding: 2rem;
-      backdrop-filter: blur(10px);
-    }
-
-    .funnel-step {
-      margin: 2rem 0;
-    }
-
-    .funnel-step h2 {
-      color: #ffffff;
-      font-size: 1.8rem;
-    }
-
-    .funnel-step p {
-      color: #ddd;
-    }
-
-    .funnel-img-placeholder {
-      background-color: rgba(255, 255, 255, 0.1);
-      border: 2px dashed #9e00ff;
-      border-radius: 10px;
-      height: 200px;
-      margin-top: 1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #9e00ff;
-      font-weight: bold;
-    }
-
-    /* Animações de fundo */
-    .background-effect {
+    .background {
       position: fixed;
-      width: 100vw;
-      height: 100vh;
       top: 0;
       left: 0;
-      z-index: 0;
-      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
       overflow: hidden;
+      pointer-events: none;
     }
 
-    .pulse {
+    .dot {
       position: absolute;
-      width: 150px;
-      height: 150px;
-      background: radial-gradient(circle, rgba(158, 0, 255, 0.4) 0%, transparent 70%);
-      animation: pulseAnim 8s ease-in-out infinite;
-      filter: blur(15px);
+      width: 6px;
+      height: 6px;
+      background-color: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
+      animation: float 10s infinite ease-in-out;
     }
 
-    @keyframes pulseAnim {
+    .arrow {
+      position: absolute;
+      width: 10px;
+      height: 20px;
+      border-left: 2px solid rgba(155, 89, 182, 0.3);
+      border-bottom: 2px solid rgba(155, 89, 182, 0.3);
+      transform: rotate(-45deg);
+      animation: rise 8s infinite ease-in;
+    }
+
+    @keyframes float {
       0% {
-        transform: scale(0.8);
-        opacity: 0.6;
+        transform: translateY(0) scale(1);
       }
       50% {
-        transform: scale(1.2);
+        transform: translateY(-20px) scale(1.2);
+      }
+      100% {
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(100vh) rotate(-45deg);
+        opacity: 0;
+      }
+      50% {
         opacity: 1;
       }
       100% {
-        transform: scale(0.8);
-        opacity: 0.6;
+        transform: translateY(-10vh) rotate(-45deg);
+        opacity: 0;
       }
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 20px 60px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #e0b3ff;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #c2a3e3;
+      max-width: 600px;
+      margin: 20px auto 0;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      color: #d89fff;
+      margin-bottom: 20px;
+    }
+
+    .section p {
+      font-size: 1.1rem;
+      color: #d9c8ec;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: #a28dc4;
     }
   </style>
 </head>
 
 <body>
-  <div class="background-effect">
-    <div class="pulse" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
-    <div class="pulse" style="top: 30%; left: 70%; animation-delay: 2s;"></div>
-    <div class="pulse" style="top: 70%; left: 40%; animation-delay: 4s;"></div>
-    <div class="pulse" style="top: 50%; left: 80%; animation-delay: 1s;"></div>
-  </div>
+  <div class="background" id="background"></div>
 
   <header>
     <h1>Pixel Fantasma</h1>
-    <p>Transforme sua presença online com estratégias inteligentes e automações sob medida.</p>
-    <button class="btn">Falar com Especialista</button>
+    <p>Agência 100% sem rosto, com inteligência estratégica para afiliados e negócios locais. Tudo com agilidade, IA e impacto visual.</p>
   </header>
 
-  <section class="section funnel-section">
-    <div class="funnel-step">
-      <h2>1. Atrair a Atenção</h2>
-      <p>Utilizamos criativos chamativos e campanhas direcionadas para capturar o olhar do público ideal.</p>
-      <div class="funnel-img-placeholder">IMAGEM/CRIATIVO DE CHAMADA</div>
-    </div>
-    <div class="funnel-step">
-      <h2>2. Engajar com Confiança</h2>
-      <p>Apresentamos a proposta da Pixel Fantasma com argumentos persuasivos e provas sociais.</p>
-      <div class="funnel-img-placeholder">IMAGEM DE PROVA SOCIAL</div>
-    </div>
-    <div class="funnel-step">
-      <h2>3. Converter com Ofertas Inteligentes</h2>
-      <p>Oferecemos o Combo Iniciante como porta de entrada acessível para novos clientes.</p>
-      <div class="funnel-img-placeholder">IMAGEM DO COMBO INICIANTE</div>
-    </div>
-    <div class="funnel-step">
-      <h2>4. Encaminhar para o WhatsApp</h2>
-      <p>Finalizamos com um CTA direto para conversão no WhatsApp, com automação ativa.</p>
-      <div class="funnel-img-placeholder">BOTÃO/CTA WHATSAPP</div>
-    </div>
+  <section class="section">
+    <h2>O que fazemos</h2>
+    <p>
+      Da criação de campanhas e anúncios pagos até automações completas no WhatsApp e e-mail. Criamos personas, textos persuasivos e gerenciamos seu marketing digital com foco em resultado.
+    </p>
   </section>
 
   <section class="section">
-    <h2>Serviços Estratégicos</h2>
-    <p>Oferecemos gerenciamento de mídias, anúncios pagos, copywriting, funis de automação e muito mais.</p>
+    <h2>Para quem é</h2>
+    <p>
+      Afiliados iniciantes ou avançados que querem vender sem precisar criar conteúdo. Negócios locais que querem atrair mais clientes. Quem deseja automação, branding e performance sem complicação.
+    </p>
   </section>
 
   <section class="section">
-    <h2>Por que a Pixel Fantasma?</h2>
-    <p>Somos uma agência sem rosto, 100% IA e voltada para performance. Acreditamos em resultados, não em seguidores.</p>
+    <h2>Por que funciona</h2>
+    <p>
+      Utilizamos inteligência artificial, estratégias de neurobranding e automação para criar presença digital de alto impacto com baixo custo e alta velocidade.
+    </p>
   </section>
 
-  <footer class="section">
-    <p>© 2025 Pixel Fantasma. Todos os direitos reservados.</p>
+  <footer>
+    © 2025 Pixel Fantasma. Todos os direitos reservados.
   </footer>
+
+  <script>
+    const background = document.getElementById("background");
+
+    for (let i = 0; i < 60; i++) {
+      const dot = document.createElement("div");
+      dot.classList.add("dot");
+      dot.style.top = `${Math.random() * 100}%`;
+      dot.style.left = `${Math.random() * 100}%`;
+      background.appendChild(dot);
+    }
+
+    for (let i = 0; i < 20; i++) {
+      const arrow = document.createElement("div");
+      arrow.classList.add("arrow");
+      arrow.style.left = `${Math.random() * 100}%`;
+      arrow.style.animationDelay = `${Math.random() * 8}s`;
+      background.appendChild(arrow);
+    }
+  </script>
 </body>
 
 </html>
