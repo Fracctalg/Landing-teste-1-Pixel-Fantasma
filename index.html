@@ -1,180 +1,222 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pixel Fantasma - Agência Digital Estratégica</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pixel Fantasma - Estratégia Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
       padding: 0;
+      font-family: 'Outfit', sans-serif;
       box-sizing: border-box;
     }
 
     body {
-      font-family: 'Space Grotesk', sans-serif;
-      background-color: #0d011a;
+      background: #0e0a1f;
       color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
       overflow-x: hidden;
       position: relative;
     }
 
-    .background {
+    .container {
+      max-width: 600px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #00ffd5;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    img {
+      width: 100%;
+      max-width: 400px;
+      margin: 20px auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 0 30px #00ffd59e;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn i {
+      font-size: 1.2rem;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .linktree {
+      background-color: #6f42c1;
+    }
+
+    .section {
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    .section h2 {
+      color: #00ffd5;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .section ul li {
+      margin-bottom: 10px;
+      color: #bbb;
+    }
+
+    @media (max-width: 768px) {
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Efeitos de fundo - vultos e fumaça neon */
+    .background-effects {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1;
+      z-index: 0;
       overflow: hidden;
       pointer-events: none;
     }
 
-    .dot {
+    .vulto {
       position: absolute;
-      width: 6px;
-      height: 6px;
-      background-color: rgba(255, 255, 255, 0.1);
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(200,100,255,0.3), transparent 70%);
       border-radius: 50%;
-      animation: float 10s infinite ease-in-out;
+      filter: blur(50px);
+      animation: vultoAnim 12s infinite ease-in-out;
     }
 
-    .arrow {
-      position: absolute;
-      width: 10px;
-      height: 20px;
-      border-left: 2px solid rgba(155, 89, 182, 0.3);
-      border-bottom: 2px solid rgba(155, 89, 182, 0.3);
-      transform: rotate(-45deg);
-      animation: rise 8s infinite ease-in;
-    }
-
-    @keyframes float {
+    @keyframes vultoAnim {
       0% {
-        transform: translateY(0) scale(1);
-      }
-      50% {
-        transform: translateY(-20px) scale(1.2);
-      }
-      100% {
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    @keyframes rise {
-      0% {
-        transform: translateY(100vh) rotate(-45deg);
+        transform: translate(0, 0) scale(1);
         opacity: 0;
       }
+      25% {
+        opacity: 0.3;
+      }
       50% {
-        opacity: 1;
+        transform: translate(100px, -50px) scale(1.1);
+        opacity: 0.6;
+      }
+      75% {
+        opacity: 0.3;
       }
       100% {
-        transform: translateY(-10vh) rotate(-45deg);
+        transform: translate(-80px, 60px) scale(1);
         opacity: 0;
       }
     }
 
-    header {
-      text-align: center;
-      padding: 100px 20px 60px;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      color: #e0b3ff;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      color: #c2a3e3;
-      max-width: 600px;
-      margin: 20px auto 0;
-    }
-
-    .section {
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
-
-    .section h2 {
-      font-size: 2rem;
-      color: #d89fff;
-      margin-bottom: 20px;
-    }
-
-    .section p {
-      font-size: 1.1rem;
-      color: #d9c8ec;
-      line-height: 1.6;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      color: #a28dc4;
-    }
   </style>
 </head>
 
 <body>
-  <div class="background" id="background"></div>
 
-  <header>
+  <div class="background-effects">
+    <div class="vulto" style="top:10%; left:15%; animation-delay: 0s;"></div>
+    <div class="vulto" style="top:60%; left:70%; animation-delay: 3s;"></div>
+    <div class="vulto" style="top:40%; left:50%; animation-delay: 6s;"></div>
+    <div class="vulto" style="top:20%; left:80%; animation-delay: 9s;"></div>
+  </div>
+
+  <div class="container">
     <h1>Pixel Fantasma</h1>
-    <p>Agência 100% sem rosto, com inteligência estratégica para afiliados e negócios locais. Tudo com agilidade, IA e impacto visual.</p>
-  </header>
+    <p>Transformando negócios com estratégia, automação e criatividade.</p>
 
-  <section class="section">
-    <h2>O que fazemos</h2>
-    <p>
-      Da criação de campanhas e anúncios pagos até automações completas no WhatsApp e e-mail. Criamos personas, textos persuasivos e gerenciamos seu marketing digital com foco em resultado.
-    </p>
-  </section>
+    <img src="empreendedor.png" alt="Empreendedor moderno" />
 
-  <section class="section">
-    <h2>Para quem é</h2>
-    <p>
-      Afiliados iniciantes ou avançados que querem vender sem precisar criar conteúdo. Negócios locais que querem atrair mais clientes. Quem deseja automação, branding e performance sem complicação.
-    </p>
-  </section>
+    <div class="buttons">
+      <a href="https://wa.me/5547991179867" class="btn">
+        <i class="bi bi-whatsapp"></i> WhatsApp
+      </a>
+      <a href="https://linktr.ee/pixelfantasma" class="btn linktree">
+        <i class="bi bi-link-45deg"></i> Linktree
+      </a>
+    </div>
 
-  <section class="section">
-    <h2>Por que funciona</h2>
-    <p>
-      Utilizamos inteligência artificial, estratégias de neurobranding e automação para criar presença digital de alto impacto com baixo custo e alta velocidade.
-    </p>
-  </section>
+    <div class="section">
+      <h2>🚀 Serviços oferecidos</h2>
+      <ul>
+        <li>📱 Gerenciamento de mídias sociais</li>
+        <li>🎯 Criação e gestão de anúncios pagos</li>
+        <li>🧠 Copywriting estratégico</li>
+        <li>👤 Desenvolvimento de persona</li>
+        <li>🤖 Funil de automação via WhatsApp e e-mail marketing</li>
+      </ul>
+    </div>
 
-  <footer>
-    © 2025 Pixel Fantasma. Todos os direitos reservados.
-  </footer>
+    <div class="section">
+      <h2>✨ Benefícios e diferenciais</h2>
+      <ul>
+        <li>⚡ Entregas rápidas com apoio de IA</li>
+        <li>💡 Estratégia personalizada para cada cliente</li>
+        <li>📊 Foco em resultado e conversão</li>
+        <li>🎨 Comunicação elegante e profissional</li>
+      </ul>
+    </div>
 
-  <script>
-    const background = document.getElementById("background");
+    <div class="section">
+      <h2>📢 Prova social</h2>
+      <p>+ de 120 clientes atendidos com estratégias que geram resultados reais.</p>
+      <p><strong>Entre em contato e descubra o que a Pixel Fantasma pode fazer pelo seu negócio.</strong></p>
+    </div>
+  </div>
 
-    for (let i = 0; i < 60; i++) {
-      const dot = document.createElement("div");
-      dot.classList.add("dot");
-      dot.style.top = `${Math.random() * 100}%`;
-      dot.style.left = `${Math.random() * 100}%`;
-      background.appendChild(dot);
-    }
-
-    for (let i = 0; i < 20; i++) {
-      const arrow = document.createElement("div");
-      arrow.classList.add("arrow");
-      arrow.style.left = `${Math.random() * 100}%`;
-      arrow.style.animationDelay = `${Math.random() * 8}s`;
-      background.appendChild(arrow);
-    }
-  </script>
 </body>
-
 </html>
