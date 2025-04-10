@@ -2,95 +2,253 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pixel Fantasma</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pixel Fantasma - Estratégia Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: radial-gradient(circle at center, #0f0017 0%, #080010 100%);
-      color: white;
+      padding: 0;
+      font-family: 'Outfit', sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0e0a1f;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
       overflow-x: hidden;
+      position: relative;
     }
 
     .container {
+      max-width: 600px;
+      text-align: center;
       position: relative;
       z-index: 2;
-      padding: 4rem 2rem;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+      font-size: 2.2rem;
+      color: #00ffd5;
+      margin-bottom: 10px;
     }
 
     p {
-      font-size: 1.2rem;
-      line-height: 1.6;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #ccc;
     }
 
-    /* Ghost Animation */
-    .ghost-wrapper {
+    img {
+      width: 100%;
+      max-width: 400px;
+      margin: 20px auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 0 30px #00ffd59e;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn i {
+      font-size: 1.2rem;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .linktree {
+      background-color: #6f42c1;
+    }
+
+    .section {
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    .section h2 {
+      color: #00ffd5;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .section ul li {
+      margin-bottom: 10px;
+      color: #bbb;
+    }
+
+    @media (max-width: 768px) {
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* 🔮 Fumaça Neon + Fantasma SVG */
+    .background-effects {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .pulse {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(rgba(162, 0, 255, 0.3), transparent 70%);
+      filter: blur(50px);
+      animation: pulseGlow 6s infinite ease-in-out;
+    }
+
+    .pulse:nth-child(1) {
+      top: 10%;
+      left: 15%;
+      animation-delay: 0s;
+    }
+
+    .pulse:nth-child(2) {
+      top: 60%;
+      left: 70%;
+      animation-delay: 2s;
+    }
+
+    .pulse:nth-child(3) {
+      top: 30%;
+      left: 50%;
+      animation-delay: 4s;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        opacity: 0.2;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.6;
+        transform: scale(1.2);
+      }
+    }
+
+    .ghost {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      animation: ghostFloat 15s ease-in-out infinite;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .ghost-svg {
-      width: 200px;
-      height: 200px;
-      opacity: 0.05;
-      animation: ghostAppear 8s ease-in-out infinite alternate;
-      filter: blur(3px);
-    }
-
-    @keyframes ghostFloat {
-      0% { transform: translate(-50%, -50%) scale(1);}
-      50% { transform: translate(-50%, -52%) scale(1.05);}
-      100% { transform: translate(-50%, -50%) scale(1);}
+      width: 160px;
+      opacity: 0;
+      animation: ghostAppear 10s infinite ease-in-out;
+      filter: drop-shadow(0 0 30px rgba(162, 0, 255, 0.4)) blur(3px);
     }
 
     @keyframes ghostAppear {
-      0% { opacity: 0; filter: blur(4px); }
-      50% { opacity: 0.08; filter: blur(2px); }
-      100% { opacity: 0; filter: blur(4px); }
+      0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+      50% { opacity: 0.15; transform: translate(-50%, -50%) scale(1.05); }
     }
   </style>
 </head>
+
 <body>
-  <!-- Fantasma SVG esmaecido com efeito neon -->
-  <div class="ghost-wrapper">
-    <svg viewBox="0 0 200 200" class="ghost-svg">
-      <defs>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-          <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-      <path
-        d="M100,20 C120,20 140,40 140,60 C140,80 120,100 100,120 C80,100 60,80 60,60 C60,40 80,20 100,20 Z"
-        fill="none"
-        stroke="#b463ff"
-        stroke-width="2"
-        filter="url(#glow)"
-        opacity="0.1"
-      />
+
+  <!-- 🔮 Background -->
+  <div class="background-effects">
+    <div class="pulse"></div>
+    <div class="pulse"></div>
+    <div class="pulse"></div>
+
+    <!-- 👻 Fantasma SVG esmaecido -->
+    <svg class="ghost" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 10C30 10 20 25 20 45V75C20 78 25 78 25 75C25 72 30 72 30 75C30 78 35 78 35 75C35 72 40 72 40 75C40 78 45 78 45 75C45 72 50 72 50 75C50 78 55 78 55 75C55 72 60 72 60 75C60 78 65 78 65 75C65 72 70 72 70 75C70 78 75 78 75 75V45C75 25 70 10 50 10Z"
+        fill="rgba(162, 0, 255, 0.1)"/>
+      <circle cx="40" cy="40" r="5" fill="rgba(255, 255, 255, 0.2)" />
+      <circle cx="60" cy="40" r="5" fill="rgba(255, 255, 255, 0.2)" />
     </svg>
   </div>
 
+  <!-- 🎯 Conteúdo principal -->
   <div class="container">
-    <h1>Bem-vindo à Pixel Fantasma</h1>
-    <p>Especialistas em soluções digitais com um toque fantasmagórico de inovação.</p>
+    <h1>Pixel Fantasma</h1>
+    <p>Transformando negócios com estratégia, automação e criatividade.</p>
+
+    <img src="empreendedor.png" alt="Empreendedor moderno" />
+
+    <div class="buttons">
+      <a href="https://wa.me/5547991179867" class="btn">
+        <i class="bi bi-whatsapp"></i> WhatsApp
+      </a>
+      <a href="https://linktr.ee/pixelfantasma" class="btn linktree">
+        <i class="bi bi-link-45deg"></i> Linktree
+      </a>
+    </div>
+
+    <div class="section">
+      <h2>🚀 Serviços oferecidos</h2>
+      <ul>
+        <li>📱 Gerenciamento de mídias sociais</li>
+        <li>🎯 Criação e gestão de anúncios pagos</li>
+        <li>🧠 Copywriting estratégico</li>
+        <li>👤 Desenvolvimento de persona</li>
+        <li>🤖 Funil de automação via WhatsApp e e-mail marketing</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>✨ Benefícios e diferenciais</h2>
+      <ul>
+        <li>⚡ Entregas rápidas com apoio de IA</li>
+        <li>💡 Estratégia personalizada para cada cliente</li>
+        <li>📊 Foco em resultado e conversão</li>
+        <li>🎨 Comunicação elegante e profissional</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>📢 Prova social</h2>
+      <p>+ de 120 clientes atendidos com estratégias que geram resultados reais.</p>
+      <p><strong>Entre em contato e descubra o que a Pixel Fantasma pode fazer pelo seu negócio.</strong></p>
+    </div>
   </div>
+
 </body>
 </html>
