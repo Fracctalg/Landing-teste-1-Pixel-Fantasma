@@ -16,7 +16,7 @@
     }
 
     body {
-      background: radial-gradient(ellipse at center, #0b0b0b 0%, #1a0e2a 100%);
+      background: #0c0b1a;
       color: #fff;
       display: flex;
       flex-direction: column;
@@ -34,7 +34,7 @@
 
     h1 {
       font-size: 2.2rem;
-      color: #9b5cff;
+      color: #bb00ff;
       margin-bottom: 10px;
     }
 
@@ -50,7 +50,7 @@
       margin: 20px auto;
       display: block;
       border-radius: 12px;
-      box-shadow: 0 0 30px #a36eff9e;
+      box-shadow: 0 0 30px #bb00ff9e;
     }
 
     .buttons {
@@ -92,7 +92,7 @@
     }
 
     .section h2 {
-      color: #9b5cff;
+      color: #bb00ff;
       font-size: 1.5rem;
       margin-bottom: 10px;
     }
@@ -107,83 +107,84 @@
       color: #bbb;
     }
 
-    /* Fumaça e pulsos */
-    .pulse {
+    .animated-bg {
       position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(ellipse at center, rgba(187, 0, 255, 0.05) 0%, transparent 70%);
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .pulse {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(187,0,255,0.4), transparent);
+      animation: pulseAnim 6s ease-in-out infinite;
+      filter: blur(15px);
+    }
+
+    @keyframes pulseAnim {
+      0% { transform: scale(0.8); opacity: 0.2; }
+      50% { transform: scale(1.4); opacity: 0.6; }
+      100% { transform: scale(0.8); opacity: 0.2; }
+    }
+
+    .arrow {
+      position: absolute;
+      width: 20px;
+      height: 40px;
+      background: linear-gradient(to top, rgba(187, 0, 255, 0.3), transparent);
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      animation: floatArrow 5s linear infinite;
+      opacity: 0.3;
+    }
+
+    @keyframes floatArrow {
+      0% { transform: translateY(100vh); }
+      100% { transform: translateY(-10vh); }
+    }
+
+    .ghost {
+      position: absolute;
       top: 50%;
       left: 50%;
-      width: 300px;
-      height: 300px;
       transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(155,92,255,0.6) 0%, transparent 80%);
-      border-radius: 50%;
-      animation: pulse-glow 5s infinite ease-in-out;
-      filter: blur(60px);
-      z-index: 0;
-      opacity: 0.4;
+      opacity: 0.05;
+      animation: ghostAnim 12s ease-in-out infinite;
+      z-index: 1;
     }
 
-    @keyframes pulse-glow {
-      0%, 100% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.3;
-      }
-      50% {
-        transform: translate(-50%, -50%) scale(1.4);
-        opacity: 0.6;
-      }
+    .ghost img {
+      width: 350px;
+      filter: drop-shadow(0 0 20px #bb00ff66);
     }
 
-    /* Fantasma de fundo (esmaecido) */
-    .ghost-logo {
-      position: fixed;
-      bottom: 10%;
-      right: 5%;
-      width: 200px;
-      opacity: 0.03;
-      z-index: 0;
-      animation: ghost-fade 10s infinite ease-in-out;
-    }
-
-    @keyframes ghost-fade {
-      0%, 100% { opacity: 0.02; transform: translateY(0px); }
-      50% { opacity: 0.06; transform: translateY(-10px); }
-    }
-
-    /* Setas roxas subindo */
-    .arrow {
-      position: fixed;
-      bottom: -60px;
-      width: 30px;
-      height: 30px;
-      background: radial-gradient(rgba(155, 92, 255, 0.5), transparent);
-      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-      animation: rise 6s infinite ease-in;
-      z-index: 0;
-      filter: blur(2px);
-    }
-
-    @keyframes rise {
-      0% {
-        transform: translateY(0) scale(0.8);
-        opacity: 0;
-      }
-      50% {
-        opacity: 0.3;
-      }
-      100% {
-        transform: translateY(-800px) scale(1.2);
-        opacity: 0;
-      }
+    @keyframes ghostAnim {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.03; }
+      50% { transform: translate(-50%, -48%) scale(1.05); opacity: 0.07; }
     }
   </style>
 </head>
 <body>
-  <div class="pulse"></div>
-  <img src="fantasma.png" alt="Logo Fantasma" class="ghost-logo" />
-  <div class="arrow" style="left: 20%; animation-delay: 0s"></div>
-  <div class="arrow" style="left: 40%; animation-delay: 2s"></div>
-  <div class="arrow" style="left: 60%; animation-delay: 4s"></div>
+
+  <div class="animated-bg">
+    <div class="pulse" style="top: 10%; left: 20%;"></div>
+    <div class="pulse" style="top: 60%; left: 70%; animation-delay: 2s;"></div>
+    <div class="pulse" style="top: 80%; left: 30%; animation-delay: 4s;"></div>
+
+    <div class="arrow" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="arrow" style="left: 50%; animation-delay: 2s;"></div>
+    <div class="arrow" style="left: 80%; animation-delay: 4s;"></div>
+
+    <div class="ghost">
+      <img src="fantasma.png" alt="Fantasma Pixel" />
+    </div>
+  </div>
 
   <div class="container">
     <h1>Pixel Fantasma</h1>
@@ -204,7 +205,7 @@
       <h2>🚀 Serviços oferecidos</h2>
       <ul>
         <li>📱 Gerenciamento de mídias sociais</li>
-        <li>🌟 Criação e gestão de anúncos pagos</li>
+        <li>🎯 Criação e gestão de anúncios pagos</li>
         <li>🧠 Copywriting estratégico</li>
         <li>👤 Desenvolvimento de persona</li>
         <li>🤖 Funil de automação via WhatsApp e e-mail marketing</li>
@@ -227,5 +228,6 @@
       <p><strong>Entre em contato e descubra o que a Pixel Fantasma pode fazer pelo seu negócio.</strong></p>
     </div>
   </div>
+
 </body>
 </html>
