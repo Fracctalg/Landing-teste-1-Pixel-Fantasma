@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -16,13 +17,14 @@
     }
 
     body {
-      background: linear-gradient(to right, #0e0e12, #15151d);
+      background: #0e0a1f;
       color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 40px 20px;
       overflow-x: hidden;
+      position: relative;
     }
 
     .container {
@@ -107,67 +109,6 @@
       color: #bbb;
     }
 
-    /* Fantasma esmaecido central */
-    .ghost-bg {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 500px;
-      height: 500px;
-      background-image: url('https://i.imgur.com/W4WfZyC.png'); /* link da logo fantasma com fundo transparente */
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      opacity: 0;
-      animation: ghostFade 12s ease-in-out infinite;
-      z-index: 0;
-      filter: blur(12px) brightness(1.1);
-      pointer-events: none;
-    }
-
-    @keyframes ghostFade {
-      0%, 100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(1);
-      }
-      50% {
-        opacity: 0.08;
-        transform: translate(-50%, -50%) scale(1.05);
-      }
-    }
-
-    /* Bolinhas e fumaça neon já existentes + efeito adicional */
-    .pulse {
-      position: fixed;
-      width: 15px;
-      height: 15px;
-      background: rgba(162, 0, 255, 0.2);
-      border-radius: 50%;
-      animation: pulseAnim 6s infinite ease-in-out;
-      z-index: 0;
-      filter: blur(6px);
-    }
-
-    @keyframes pulseAnim {
-      0% {
-        transform: scale(0.8);
-        opacity: 0.2;
-      }
-      50% {
-        transform: scale(1.4);
-        opacity: 0.5;
-      }
-      100% {
-        transform: scale(0.8);
-        opacity: 0.2;
-      }
-    }
-
-    .pulse:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-    .pulse:nth-child(2) { top: 60%; left: 80%; animation-delay: 2s; }
-    .pulse:nth-child(3) { top: 80%; left: 30%; animation-delay: 4s; }
-
     @media (max-width: 768px) {
       .buttons {
         flex-direction: column;
@@ -178,17 +119,61 @@
         justify-content: center;
       }
     }
+
+    /* Efeitos de fundo - vultos e fumaça neon */
+    .background-effects {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .vulto {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(200,100,255,0.3), transparent 70%);
+      border-radius: 50%;
+      filter: blur(50px);
+      animation: vultoAnim 12s infinite ease-in-out;
+    }
+
+    @keyframes vultoAnim {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0;
+      }
+      25% {
+        opacity: 0.3;
+      }
+      50% {
+        transform: translate(100px, -50px) scale(1.1);
+        opacity: 0.6;
+      }
+      75% {
+        opacity: 0.3;
+      }
+      100% {
+        transform: translate(-80px, 60px) scale(1);
+        opacity: 0;
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
-  <!-- Fantasma esmaecido no fundo -->
-  <div class="ghost-bg"></div>
-
-  <!-- Pulsos de luz -->
-  <div class="pulse"></div>
-  <div class="pulse"></div>
-  <div class="pulse"></div>
+  <div class="background-effects">
+    <div class="vulto" style="top:10%; left:15%; animation-delay: 0s;"></div>
+    <div class="vulto" style="top:60%; left:70%; animation-delay: 3s;"></div>
+    <div class="vulto" style="top:40%; left:50%; animation-delay: 6s;"></div>
+    <div class="vulto" style="top:20%; left:80%; animation-delay: 9s;"></div>
+  </div>
 
   <div class="container">
     <h1>Pixel Fantasma</h1>
