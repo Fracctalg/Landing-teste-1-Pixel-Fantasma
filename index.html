@@ -16,87 +16,32 @@
     }
 
     body {
-      background-color: #0c0515;
+      background: radial-gradient(ellipse at center, #0b0b0b 0%, #1a0e2a 100%);
       color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
       overflow-x: hidden;
     }
 
-    .background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .pulse {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: rgba(188, 97, 255, 0.4);
-      animation: pulseAnim 6s ease-in-out infinite;
-    }
-
-    @keyframes pulseAnim {
-      0% { transform: scale(0.5); opacity: 0.5; }
-      50% { transform: scale(1.5); opacity: 0.2; }
-      100% { transform: scale(0.5); opacity: 0.5; }
-    }
-
-    .arrow {
-      position: absolute;
-      width: 10px;
-      height: 30px;
-      background: linear-gradient(to top, transparent, rgba(188, 97, 255, 0.3));
-      animation: arrowAnim 8s linear infinite;
-    }
-
-    @keyframes arrowAnim {
-      0% { transform: translateY(100vh); opacity: 0; }
-      50% { opacity: 1; }
-      100% { transform: translateY(-100px); opacity: 0; }
-    }
-
-    .ghost-logo {
-      position: fixed;
-      bottom: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 200px;
-      opacity: 0.03;
-      animation: ghostFloat 10s ease-in-out infinite;
-      z-index: 0;
-    }
-
-    @keyframes ghostFloat {
-      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.02; }
-      50% { transform: translateX(-50%) translateY(-20px); opacity: 0.06; }
-    }
-
     .container {
-      position: relative;
       max-width: 600px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      z-index: 1;
+      text-align: center;
+      position: relative;
+      z-index: 2;
     }
 
     h1 {
       font-size: 2.2rem;
-      color: #bc61ff;
+      color: #9b5cff;
       margin-bottom: 10px;
-      text-align: center;
     }
 
     p {
       font-size: 1rem;
       margin-bottom: 20px;
       color: #ccc;
-      text-align: center;
     }
 
     img {
@@ -105,7 +50,7 @@
       margin: 20px auto;
       display: block;
       border-radius: 12px;
-      box-shadow: 0 0 30px #bc61ff7e;
+      box-shadow: 0 0 30px #a36eff9e;
     }
 
     .buttons {
@@ -143,10 +88,11 @@
 
     .section {
       margin-top: 40px;
+      text-align: left;
     }
 
     .section h2 {
-      color: #bc61ff;
+      color: #9b5cff;
       font-size: 1.5rem;
       margin-bottom: 10px;
     }
@@ -160,21 +106,84 @@
       margin-bottom: 10px;
       color: #bbb;
     }
+
+    /* Fumaça e pulsos */
+    .pulse {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      height: 300px;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(155,92,255,0.6) 0%, transparent 80%);
+      border-radius: 50%;
+      animation: pulse-glow 5s infinite ease-in-out;
+      filter: blur(60px);
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.4);
+        opacity: 0.6;
+      }
+    }
+
+    /* Fantasma de fundo (esmaecido) */
+    .ghost-logo {
+      position: fixed;
+      bottom: 10%;
+      right: 5%;
+      width: 200px;
+      opacity: 0.03;
+      z-index: 0;
+      animation: ghost-fade 10s infinite ease-in-out;
+    }
+
+    @keyframes ghost-fade {
+      0%, 100% { opacity: 0.02; transform: translateY(0px); }
+      50% { opacity: 0.06; transform: translateY(-10px); }
+    }
+
+    /* Setas roxas subindo */
+    .arrow {
+      position: fixed;
+      bottom: -60px;
+      width: 30px;
+      height: 30px;
+      background: radial-gradient(rgba(155, 92, 255, 0.5), transparent);
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      animation: rise 6s infinite ease-in;
+      z-index: 0;
+      filter: blur(2px);
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(-800px) scale(1.2);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="background">
-    <img src="URL-OU-CAMINHO-REAL-DA-IMAGEM" alt="Logo Fantasma" class="ghost-logo" />
-
-    <!-- Pulsos -->
-    <div class="pulse" style="top: 30%; left: 20%;"></div>
-    <div class="pulse" style="top: 50%; left: 70%;"></div>
-    <div class="pulse" style="top: 80%; left: 40%;"></div>
-    <!-- Setas -->
-    <div class="arrow" style="left: 10%; animation-delay: 0s;"></div>
-    <div class="arrow" style="left: 50%; animation-delay: 2s;"></div>
-    <div class="arrow" style="left: 80%; animation-delay: 4s;"></div>
-  </div>
+  <div class="pulse"></div>
+  <img src="fantasma.png" alt="Logo Fantasma" class="ghost-logo" />
+  <div class="arrow" style="left: 20%; animation-delay: 0s"></div>
+  <div class="arrow" style="left: 40%; animation-delay: 2s"></div>
+  <div class="arrow" style="left: 60%; animation-delay: 4s"></div>
 
   <div class="container">
     <h1>Pixel Fantasma</h1>
@@ -195,7 +204,7 @@
       <h2>🚀 Serviços oferecidos</h2>
       <ul>
         <li>📱 Gerenciamento de mídias sociais</li>
-        <li>🎯 Criação e gestão de anúncios pagos</li>
+        <li>🌟 Criação e gestão de anúncos pagos</li>
         <li>🧠 Copywriting estratégico</li>
         <li>👤 Desenvolvimento de persona</li>
         <li>🤖 Funil de automação via WhatsApp e e-mail marketing</li>
